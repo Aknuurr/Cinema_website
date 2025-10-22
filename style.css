@@ -1,0 +1,632 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #000;
+  font-family: 'Manrope', sans-serif;
+  color: #fff;
+}
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.brand {
+  display: inline-block; 
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cine {
+  color: #fff;  
+}
+
+.maxx {
+  color: #891D1D; 
+}
+
+
+.menu-box {
+  display: flex;
+  gap: 25px;
+  font-family: "Manrope", sans-serif;
+  background: #000;           
+  padding: 14px 30px;
+  border-radius: 12px;
+  border: 3px solid #333333; 
+  margin-right: 300px;
+  margin-left: 230px;
+}
+
+.menu-box a {
+  text-decoration: none;
+  color: #ccc;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.menu-box a:hover {
+  color: #fff;
+}
+
+.menu-box .active {
+  color: #fff;
+  font-weight: 400;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 100px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: opacity 0.5s ease;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid white;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  margin-left: 5px;
+}
+
+.film-info {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: white;
+  z-index: 2;
+}
+
+.tag {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 12px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.film-info h2 {
+  font-size: 26px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.film-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  z-index: 1;
+}
+.film-description {
+  display: flex;
+  gap: 80px;
+  padding: 60px 8%;
+  align-items: flex-start;
+  background-color: #000;
+  color: #eaeaea;
+  margin-right: 80px;
+  margin-left: 80px;
+}
+
+.poster img {
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.details {
+  max-width: 700px;
+}
+
+.details h1 {
+  font-family: "Manrope", sans-serif;
+  color: #F00000;
+  font-size: 32px;
+  margin: 0 0 5px 0;
+}
+
+.genre {
+  font-family: "Manrope", sans-serif;
+  color: #4E4D4D;
+  font-weight: 600;
+  
+}
+
+.meta p {
+  margin-top: 15px;
+  margin: 6px 0;
+  font-size: 15px;
+  color: #9D9D9D;
+}
+
+.meta strong {
+  margin-top: 15px;
+  color: #fff;
+  width: 160px;
+  display: inline-block;
+}
+
+.details h2 {
+  margin-top: 35px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.description {
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #9D9D9D;
+}
+.schedule {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 8%;
+  font-family: "Manrope", sans-serif;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.schedule-title {
+  font-family: "Manrope", sans-serif;
+  color: #ff2b2b;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  border-left: 4px solid #ff2b2b;
+  padding-left: 10px;
+}
+
+.schedule-dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+.date-item {
+  position: relative;
+  line-height: 0.8;
+}
+
+.date-item h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.date-item .day {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.date-item .month {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  color: #9D9D9D;
+}
+.date-item {
+  position: relative;
+  line-height: 0.8;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.date-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.date-item:hover h3 {
+  color: #ff4444; 
+  transition: color 0.3s ease;
+}
+
+.date-item:hover .day,
+.date-item:hover .month {
+  color: #fff;
+}
+
+.date-item.active {
+ 
+  border-radius: 10px;
+  color: #fff;
+}
+
+.date-item.active h3,
+.date-item.active .day,
+.date-item.active .month {
+  color: #fff;
+}
+.date-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: #ff2b2b;
+  border-radius: 2px;
+}
+
+.date-icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -40px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.date-icon img {
+  width: 24px; 
+  height: auto;
+}
+
+.hall {
+  background-color: #2a2a2a;
+  padding: 20px 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hall-name {
+  background-color: #3b3b3b;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 25px;
+  border-radius: 6px;
+}
+
+.time-slots {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.time {
+  background-color: #d3d3d3;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.footer {
+  background-color: #0f0f0f;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 50px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+  flex: 1;
+  min-width: 200px;
+  height: auto;
+  margin-bottom: 60px;
+}
+
+.footer-branding .logo {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-branding .brand-text {
+  font-size: 28px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+.footer-branding .brand-text span {
+  color: #ff2a2a; 
+}
+
+.footer-links {
+  display: flex;
+  flex: 2;
+  gap: 160px;
+  margin-right: 200px;
+}
+
+.footer-column h3 {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #999999;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-social h3 {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.social-icons a img {
+  width: 35px;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #999999;
+  margin-top: 30px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #999999;
+}
+
+.legal-links a {
+  margin-left: 20px;
+  color: #999999;
+  text-decoration: none;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010;
+}
+
+.burger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+@media (max-width: 768px) {
+  .menu-box {
+        display: none; 
+        position: fixed;
+        top: 0;
+        right: 0; 
+        left: auto; 
+        width: 70%; 
+        max-width: 300px; 
+        height: 100vh;
+        background: #141414;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        border: none;
+        border-radius: 0;
+        transform: translateX(100%); 
+        transition: transform 0.3s ease-in-out;
+        z-index: 1005; 
+    }
+
+    
+    .menu-box.active {
+        display: flex; 
+        transform: translateX(0);
+    }
+    
+    .menu-box a {
+        font-size: 18px; 
+    }
+
+    .icons {
+        display: none; 
+    }
+
+    .burger {
+        display: flex; 
+    }
+    .film-description {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .poster img {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    .details {
+        max-width: 100%;
+    }
+    .schedule {
+  
+  padding: 2rem 1.5rem;
+  margin-left: 0;  
+  margin-right: 0; 
+}
+
+.schedule-title {
+  text-align: left; 
+  margin-bottom: 2rem;
+}
+
+.schedule-dates {
+  
+  overflow-x: auto;
+  display: flex;
+  
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.schedule-dates::-webkit-scrollbar {
+  display: none; 
+}
+.date-item {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  
+}
+
+.date-icon {
+  display: none;
+}
+
+.hall {
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-top: 2.5rem; 
+  gap: 1rem;
+}
+
+.time-slots {
+  gap: 10px; 
+}
+
+.footer-container, .footer-links, .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .footer-branding {
+      justify-content: center;
+      margin-right: 0;
+  }
+  .footer-links {
+      gap: 30px;
+      margin-right: 0;
+  }
+  .legal-links a {
+      margin: 5px 0;
+  }
+}

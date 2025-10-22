@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="movies.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Movies</title>
+</head>
+<body>
+     <header class="navbar">
+    <div class="logo">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+    <div class="burger" id="burgerMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <nav class="menu-box">
+      <a href="homepage.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="schedules.html">Schedule</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="icons">
+      <img src="Icon search.png" alt="Search" class="icon">
+      <img src="user profile.png" alt="User" class="icon">
+    </div>
+  </header>
+  <section class="poster" id="poster">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1 class="title" id="poster-title">Qaitadan</h1>
+    <p class="description" id="poster-description">
+      When destiny shatters the balance of life, only unity can restore hope.
+      With courage, sacrifice, and the strength of their bonds, the heroes of
+      Qaitadan must rise once again to confront the darkness threatening their world.
+    </p>
+
+    <div class="buttons">
+      <button class="play-btn" onclick="window.location.href='index.html'">
+        <img src="play now icon.png" alt="Play Icon">
+        Play Now
+      </button>
+
+      <button class="icon-btn">
+        <img src="add icon.png" alt="Add Icon">
+      </button>
+
+      <button class="icon-btn">
+        <img src="like icon.png" alt="Like Icon">
+      </button>
+
+      <button class="icon-btn">
+        <img src="sound icon.png" alt="Sound Icon">
+      </button>
+    </div>
+
+    <div class="dots" id="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</section>
+
+<section class="trending-now-section">
+  <div class="trending-header">
+    <h2>Trending Now</h2>
+  </div>
+
+  <div class="trending-container" id="trending-container">
+    <p>Loading movies...</p>
+  </div>
+
+  <script>
+    const apiKey = "d795d497cce7eb3f6c1443885b83f79b"; 
+    const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('trending-container');
+        container.innerHTML = data.results.map(movie => `
+          <div class="movie-card">
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+            <div class="movie-info-row">
+              <span class="movie-genre">${movie.original_language.toUpperCase()}</span>
+              <span class="movie-age">⭐ ${movie.vote_average.toFixed(1)}</span>
+            </div>
+          </div>
+        `).join('');
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+        document.getElementById('trending-container').innerHTML = "<p>Failed to load movies 😢</p>";
+      });
+  </script>
+</section>
+
+    
+
+
+<section class="coming-soon-section">
+  <div class="coming-header">
+    <h2>Coming Soon</h2>
+    
+  </div>
+  <div class="coming-container" id="comingContainer">
+    <div class="coming-card">
+      <img src="капитан америка.png" alt="Movie 1">
+      <div class="release-box">Released at 26 Oct, 2025</div>
+    </div>
+    <div class="coming-card">
+      <img src="бакыт.png" alt="Movie 1">
+      <div class="release-box">Released at 15 Oct, 2025</div>
+    </div>
+    <div class="coming-card">
+      <img src="аватар.png" alt="Movie 1">
+      <div class="release-box">Released at 15 Oct, 2025</div>
+    </div>
+    <div class="coming-card">
+      <img src="лиа.png" alt="Movie 1">
+      <div class="release-box">Released at 19 Oct, 2025</div>
+    </div>
+    <div class="coming-card">
+      <img src="назад в 90.png" alt="Movie 1">
+      <div class="release-box">Released at 22 Oct, 2025</div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="horizontal-row">
+  <section class="ticket-banner">  
+    <div class="banner-content">
+      <div class="text-content">
+        <h1>Book Your Tickets Today!</h1>
+        <p>Don’t miss the latest blockbusters on the big screen with stunning sound and picture quality.</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </section>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-branding">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Home</h3>
+        <ul>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Movies</h3>
+        <ul>
+          <li><a href="#">Genres</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Coming Soon</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    
+
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="facebook icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="icon twitter.png" alt="Twitter" /></a>
+        <a href="#"><img src="icon linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>©2025 Cinemaxx. All Rights Reserved</p>
+    <div class="legal-links">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+    
+     
+
+<script src="poster.js"></script>
+<script>
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu-box');
+
+
+burger.addEventListener('click', () => {
+    
+    burger.classList.toggle('active');
+    
+    menu.classList.toggle('active');
+});
+</script>
+<script>
+  
+  const navLinks = document.querySelectorAll('.menu-box a');
+  
+ 
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active'); 
+    } else {
+      link.classList.remove('active'); 
+    }
+  });
+</script>
+
+</body>
+</html>
+
+

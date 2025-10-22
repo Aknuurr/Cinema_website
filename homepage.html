@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMaxx</title>
+    <link rel="stylesheet"href = "homepage.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+    <div class="burger" id="burgerMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+
+  <nav class="menu-box" id="mainMenu">
+    <a href="homepage.html">Home</a>
+    <a href="movies.html">Movies</a>
+    <a href="schedules.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    <div class="icons">
+      <img src="Icon search.png" alt="Search" class="icon">
+      <img src="user profile.png" alt="User" class="icon">
+    </div>
+  </header>
+  <div id="authPopup" class="popup hidden">
+  <div class="popup-content">
+    <button class="close-btn" id="closePopup">✖</button>
+    <h2 class="popup-title" id="popupTitle">Log In</h2>
+
+  
+    <div id="loginForm" class="form-section">
+      <input type="tel" placeholder="+7 (000) 000-00-00" required />
+      <input type="password" placeholder="Password" required />
+      <div class="popup-links">
+        <a href="#">Forgot Password?</a>
+        <a href="#" id="switchToRegister">Sign Up</a>
+      </div>
+      <button class="login-btn">Log In</button>
+    </div>
+    
+
+
+  
+    <div id="registerForm" class="form-section hidden">
+      <input type="text" placeholder="Your name*" required />
+      <input type="email" placeholder="Email*" required />
+      <input type="tel" placeholder="+7 (___) ___-__-__*" required />
+      <label class="checkbox-label">
+        <input type="checkbox" required />
+        I agree with the terms of the offer agreement
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" required />
+        I agree to the processing of personal data
+      </label>
+      <button class="register-btn">Sign Up</button>
+    </div>
+    
+
+
+    
+    <div id="authMessage" class="hidden"></div>
+  </div>
+</div>
+
+<script>
+  const userIcon = document.querySelector('.icons img[alt="User"]');
+  const authPopup = document.getElementById('authPopup');
+  const closePopup = document.getElementById('closePopup');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const switchToRegister = document.getElementById('switchToRegister');
+  const popupTitle = document.getElementById('popupTitle');
+  const authMessage = document.getElementById('authMessage');
+
+  
+  userIcon.addEventListener('click', () => {
+    authPopup.classList.remove('hidden');
+    loginForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+    authMessage.classList.add('hidden');
+    popupTitle.textContent = 'Log In';
+  });
+
+  
+  closePopup.addEventListener('click', () => {
+    authPopup.classList.add('hidden');
+  });
+
+  
+  switchToRegister.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginForm.classList.add('hidden');
+    registerForm.classList.remove('hidden');
+    authMessage.classList.add('hidden');
+    popupTitle.textContent = 'Sign Up';
+  });
+
+  
+  const loginBtn = document.querySelector('.login-btn');
+  const registerBtn = document.querySelector('.register-btn');
+
+  
+  function showMessage(text) {
+    loginForm.classList.add('hidden');
+    registerForm.classList.add('hidden');
+
+    authMessage.textContent = text;
+    authMessage.classList.remove('hidden');
+    authMessage.classList.add('show');
+
+    setTimeout(() => {
+      authMessage.classList.remove('show');
+      setTimeout(() => {
+        authMessage.classList.add('hidden');
+        authPopup.classList.add('hidden'); 
+      }, 500);
+    }, 2000);
+  }
+
+  loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showMessage('✅ Hello! Welcome back!');
+  });
+
+  registerBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showMessage('🎉 Registration successful! Welcome!');
+  });
+  
+
+</script>
+
+
+
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Cinema, Your Experience</h1>
+      <p>
+        Step into the world of movies like never before. At Cinemaxx, we bring
+        you the magic of the big screen with the latest blockbusters, timeless
+        classics, and special premieres.
+      </p>
+      <button class="btn">Book Tickets Now</button>
+    </div>
+  </section>
+ 
+
+
+
+
+<section class="categories-header">
+  <div class="categories-top">
+    <div class="categories-text">
+      <h2>Explore our wide variety of categories</h2>
+      <p>
+        Whether you're looking for a comedy to make you laugh, a drama to make you think,
+        or a documentary to learn something new
+      </p>
+    </div>
+
+    <div class="slider-controls">
+      <button class="arrow-btn">&#8592;</button>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <button class="arrow-btn">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="categories-container">
+    
+    <div class="category-card">
+      <div class="card-images">
+        <img src="1st photo category.png" alt="">
+        <img src="2nd photo category.png" alt="">
+        <img src="3rd photo category.png" alt="">
+        <img src="4th photo category.png" alt="">
+      </div>
+      <div class="card-footer">
+        <h3>Action</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-images">
+        <img src="5th photo category.png" alt="">
+        <img src="6th photo category.png" alt="">
+        <img src="7th photo category.png" alt="">
+        <img src="8th photo category.png" alt="">
+      </div>
+      <div class="card-footer">
+        <h3>Adventure</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-images">
+        <img src="9th photo category.png" alt="">
+        <img src="10th photo category.png" alt="">
+        <img src="11th photo container.png" alt="">
+        <img src="12th photo container.png" alt="">
+      </div>
+      <div class="card-footer">
+        <h3>Comedy</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-images">
+        <img src="13th photo category.png" alt="">
+        <img src="14th photo category.png" alt="">
+        <img src="15th photo category.png" alt="">
+        <img src="16th photo.png" alt="">
+      </div>
+      <div class="card-footer">
+        <h3>Drama</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    </div>
+
+    <div class="category-card">
+      <div class="card-images">
+        <img src="17th.png" alt="">
+        <img src="18th.png" alt="">
+        <img src="19th.png" alt="">
+        <img src="20th.png" alt="">
+      </div>
+      <div class="card-footer">
+        <h3>Horror</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+const categoriesContainer = document.querySelector('.categories-container');
+const rightArrow = document.querySelectorAll('.arrow-btn')[1];
+const leftArrow = document.querySelectorAll('.arrow-btn')[0];
+const dots = document.querySelectorAll('.dot');
+
+const categorySets = [
+  // Set 1
+  [
+    { title: 'Action', images: ['1st photo category.png', '2nd photo category.png', '3rd photo category.png', '4th photo category.png'] },
+    { title: 'Adventure', images: ['5th photo category.png', '6th photo category.png', '7th photo category.png', '8th photo category.png'] },
+    { title: 'Comedy', images: ['9th photo category.png', '10th photo category.png', '11th photo container.png', '12th photo container.png'] },
+    { title: 'Drama', images: ['13th photo category.png', '14th photo category.png', '15th photo category.png', '16th photo.png'] },
+    { title: 'Horror', images: ['17th.png', '18th.png', '19th.png', '20th.png'] }
+  ],
+  // Set 2
+  [
+    { title: 'Detective', images: ['21st category.png', '22nd category.png', '23rd category.png', '24th category.png'] },
+    { title: 'Romance', images: ['25th category.png', '26th category.png', '27th category.png', '28th category.png'] },
+    { title: 'Fantasy', images: ['29th category.png', '30th category.png', '31st category.png', '32nd category.png'] },
+    { title: 'Sci-fi', images: ['33rd category.png', '34th category.png', '35th category.png', '36th category.png'] },
+    { title: 'Thriller', images: ['37th category.png', '38th category.png', '39th category.png', '40th category.png'] }
+  ],
+  // Set 3
+  [
+    { title: 'Musical', images: ['41.png', '42.png', '43.png', '44.png'] },
+    { title: 'Historical', images: ['45.png', '46.png', '47.png', '48.png'] },
+    { title: 'War', images: ['49.png', '50.png', '51.png', '52.png'] },
+    { title: 'Documentary', images: ['53.png', '54.png', '55.png', '56.png'] },
+    { title: 'Crime', images: ['57.png', '58.png', '59.png', '60.png'] }
+  ],
+  // Set 4
+  [
+    { title: 'Cartoons', images: ['61.png', '62.png', '63.png', '64.png'] },
+    { title: 'Biographical', images: ['5th photo category.png', '6th photo category.png', '7th photo category.png', '8th photo category.png'] },
+    { title: 'Sporty', images: ['69.png', '70.png', '71.png', '72.png'] },
+    { title: 'Western', images: ['73.png', '74.png', '75.png', '16th photo.png'] },
+    { title: 'Family', images: ['9th photo category.png', '11th photo container.png', '30th category.png', '61.png'] }
+  ]
+];
+
+let currentSetIndex = 0;
+
+function renderCategories(setIndex) {
+  categoriesContainer.innerHTML = '';
+
+  categorySets[setIndex].forEach(category => {
+    const card = document.createElement('div');
+    card.className = 'category-card';
+    card.innerHTML = `
+      <div class="card-images">
+        ${category.images.map(img => `<img src="${img}" alt="">`).join('')}
+      </div>
+      <div class="card-footer">
+        <h3>${category.title}</h3>
+        <span class="arrow">&#8594;</span>
+      </div>
+    `;
+    categoriesContainer.appendChild(card);
+  });
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[setIndex]) dots[setIndex].classList.add('active');
+}
+
+function animateTransition(nextIndex) {
+  categoriesContainer.classList.add('fade-out');
+  setTimeout(() => {
+    renderCategories(nextIndex);
+    categoriesContainer.classList.remove('fade-out');
+    categoriesContainer.classList.add('fade-in');
+    setTimeout(() => categoriesContainer.classList.remove('fade-in'), 300);
+  }, 300);
+}
+
+rightArrow.addEventListener('click', () => {
+  if (currentSetIndex < categorySets.length - 1) {
+    currentSetIndex++;
+    animateTransition(currentSetIndex);
+  }
+});
+
+leftArrow.addEventListener('click', () => {
+  if (currentSetIndex > 0) {
+    currentSetIndex--;
+    animateTransition(currentSetIndex);
+  }
+});
+
+renderCategories(currentSetIndex);
+
+</script>
+<section class="section">
+  <h2>Why Choose Our Website?</h2>
+  <p>We provide more than just movies — we deliver unforgettable experiences.</p>
+  
+  <div class="features">
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 1.png" alt="Latest Blockbusters">
+        </div>
+        <h3>Latest Blockbusters</h3>
+      </div>
+
+      
+      <p>Always the newest movies, from Hollywood hits to local premieres.</p>
+    </div>
+  
+  
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 2.png" alt="Snacks & Drinks">
+        </div>
+        <h3>Snacks & Drinks</h3>
+      </div>
+      <p>Fresh popcorn, nachos, and drinks to enjoy with your movie.</p>
+    </div>
+
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 3.png" alt="Multiple Formats">
+        </div>
+        <h3>Multiple Formats</h3>
+      </div>
+      <p>Watch in 2D, 3D, or even IMAX for the ultimate cinema experience.</p>
+    </div>
+  
+  
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 4.png" alt="Easy Booking">
+        </div>
+        <h3>Easy Booking</h3>
+      </div>
+      <p>Buy tickets online or at the cinema without long queues.</p>
+    </div>
+  
+  
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 5.png" alt="Comfortable Seats">
+        </div>
+        <h3>Comfortable Seats</h3>
+      </div>
+      <p>Relax in premium, spacious, and modern halls.</p>
+    </div>
+  
+  
+    <div class="feature-box">
+      <div class="top-row">
+        <div class="icon-box">
+          <img src="icon 6.png" alt="Special Events">
+        </div>
+        <h3>Special Events</h3>
+      </div>
+      <p>Night shows, film festivals, and exclusive screenings.</p>
+    </div>
+</div>
+</section>
+<section class="faq-section">
+    <div class="faq-header">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Got questions? We've got answers! Check out our FAQ section to find answers to the most common questions about StreamVibe.
+      </p>
+      <button class="ask-btn">Ask a Question</button>
+    </div>
+     <div class="faq-container">
+      <div class="faq-column">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">01</span>
+            <h3>What is Cinemaxx?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Cinemaxx is a modern cinema chain that offers the ultimate movie experience with high-quality sound, crystal-clear screens, and comfortable seating.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">02</span>
+            <h3>How often do you update movie schedules?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Movie schedules are updated every Thursday with new releases and weekend timings.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">03</span>
+            <h3>Do you show movies in different languages?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Yes, we feature movies in multiple languages and offer both dubbed and subtitled versions when available.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">04</span>
+            <h3>Can I bring my own snacks or drinks?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Yes,absolutely! Also,our snack bar offers a wide range of treats and drinks.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-column">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">05</span>
+            <h3>What payment methods do you accept?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            We accept Visa, MasterCard, Apple Pay, Google Pay, and major local payment apps.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">06</span>
+            <h3>Do you offer group or student discounts?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Yes, group discounts are available for bookings of 10 or more people. Student discounts apply on weekdays with a valid student ID.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">07</span>
+            <h3>What are the benefits of becoming a member?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            Members enjoy exclusive discounts, early access to bookings, and free popcorn or drinks on special days.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-number">08</span>
+            <h3>How can I contact customer support?</h3>
+            <img src="icon plus.png" alt="toggle" class="icon" />
+          </div>
+          <div class="faq-answer">
+            You can reach us via the “Contact Us” page, email us at support@cinemaxx.com
+, or call our hotline at +1 (800) 555-CINE.
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const icon = question.querySelector('.icon');
+
+    
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      const otherIcon = otherItem.querySelector('.icon');
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+        if (otherIcon) {
+          otherIcon.src = "icon plus.png"; 
+        }
+      }
+    });
+
+    
+    item.classList.toggle('active');
+    if (item.classList.contains('active')) {
+      icon.src = "icon minus.png"; 
+    } else {
+      icon.src = "icon plus.png"; 
+    }
+  });
+});
+</script>
+
+
+
+<div class="horizontal-row">
+  <section class="ticket-banner"> 
+    <div class="banner-content">
+      <div class="text-content">
+        <h1>Book Your Tickets Today!</h1>
+        <p>Don’t miss the latest blockbusters on the big screen with stunning sound and picture quality.</p>
+      </div>
+      <a href="#" class="book-btn">Book Now</a>
+    </div>
+  </section>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-branding">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Home</h3>
+        <ul>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Movies</h3>
+        <ul>
+          <li><a href="#">Genres</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Coming Soon</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    
+
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="facebook icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="icon twitter.png" alt="Twitter" /></a>
+        <a href="#"><img src="icon linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>©2025 Cinemaxx. All Rights Reserved</p>
+    <div class="legal-links">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+<script>
+  
+  const navLinks = document.querySelectorAll('.menu-box a');
+  
+  
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active'); 
+    } else {
+      link.classList.remove('active'); 
+    }
+  });
+</script>
+<script>
+  
+  const burgerMenu = document.getElementById("burgerMenu");
+  const mainMenu = document.getElementById("mainMenu");
+
+  burgerMenu.addEventListener("click", () => {
+    burgerMenu.classList.toggle("active");
+    mainMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+</body>
+</html>

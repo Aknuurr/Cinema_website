@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #141414;
+  font-family: "Manrope", sans-serif;
+  color: #fff;
+}
+
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* only between logo image and text */
+}
+
+.logo img {
+  height: 30px;
+}
+
+.brand {
+  display: inline-block; /* keeps Cine+maxx together */
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cine {
+  color: #fff;  /* White */
+}
+
+.maxx {
+  color: #891D1D; /* Red */
+}
+
+
+.menu-box {
+  display: flex;
+  gap: 25px;
+  font-family: "Manrope", sans-serif;
+  background: #000;              /* Pure black background */
+  padding: 14px 30px;
+  border-radius: 12px;
+  border: 3px solid #333333;        /* Grey stroke (border) */
+}
+
+.menu-box a {
+  text-decoration: none;
+  color: #ccc;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.menu-box a:hover {
+  color: #fff;
+}
+
+.menu-box .active {
+  color: #fff;
+  font-weight: 400;
+}
+
+
+/* Icons */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.main {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.schedule-btn {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top:70px;
+  margin-left: 80px;
+}
+
+.schedule-btn:hover {
+  background-color: #b91c1c;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top:70px;
+  margin-right: 80px;
+}
+
+.search-input {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 12px 50px 12px 16px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  width: 300px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  background-color: #dc2626;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* Movie Schedule */
+.movie-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.movie-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  margin-right:80px;
+  margin-left:80px
+}
+
+.movie-info {
+  display: flex;
+  gap: 0.8rem;
+  min-width: 200px;
+}
+
+.movie-poster {
+  width: 85px;
+  height: 115px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.separator {
+  color: #666;
+}
+
+.schedule-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.date-item {
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.date-item.active {
+  background-color: transparent;
+}
+.date-item:hover {
+  background-color: #333;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.day {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.month {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.hall-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hall-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  min-width: 80px;
+}
+
+.time-slots {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.time-slot {
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.time-slot:hover {
+  background-color: #555;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+}
+
+.arrow-btn:hover {
+  color: #ffffff;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+/* For smaller laptops and large tablets */
+@media (max-width: 1024px) {
+    .movie-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .movie-info {
+        min-width: auto;
+        width: 100%;
+    }
+    .arrow-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .date-row {
+      /* Allows horizontal scrolling on smaller screens if dates overflow */
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+}
+
+.burger {
+  display: none; /* Hide burger on large screens */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.burger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Burger animation when active */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+/* For tablets and mobile phones */
+@media (max-width: 768px) {
+  /* --- NAVBAR FOR MOBILE --- */
+  .menu-box {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-bg);
+    padding: 1rem 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    gap: 0;
+  }
+  
+  /* Class added by JavaScript to show the menu */
+  .menu-box.show {
+    display: flex;
+  }
+
+  .menu-box a {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .icons {
+    display: none; /* Hide icons to save space */
+  }
+  
+  .burger {
+    display: flex; /* Show burger icon */
+  }
+
+  /* --- MAIN CONTENT FOR MOBILE --- */
+  .schedule-header {
+  /* --- Centering Rules --- */
+  margin-left: 40px;
+  margin-right: 40px;
+  justify-content: center;
+  
+  /* --- Layout Rules --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  
+}
+  
+  .schedule-btn {
+        width: 100%; /* Full width button on mobile */
+        max-width: 320px;
+        margin-left: 30px;
+        margin-right: 30px;
+        justify-content: center;
+        margin-top: 50px;
+    
+    }
+     .search-container {
+        max-width: 100%;
+        width: 320px;
+        margin-left: 30px;
+        margin-right: 30px;
+        justify-content: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+  .movie-info {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hall-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+  }
+}

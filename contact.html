@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet"href = "contact.css"/>
+</head>
+<body>
+    <header class="navbar">
+    <div class="logo">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+
+
+  </div>
+  <nav class="menu-box">
+    <a href="homepage.html" class="active">Home</a>
+    <a href="movies.html">Movies</a>
+    <a href="schedules.html">Schedule</a>
+    <a href="contact.html" >Contact</a>
+  </nav>
+    <div class="icons">
+      
+      <img src="Icon search.png" alt="Search" class="icon">
+      <img src="user profile.png" alt="User" class="icon">
+      <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  <div class="contact-container">
+    <div class="left-panel">
+        <h1>Get In Touch</h1>
+        <p>We're here to help you with any problems you may be having with our website.</p>
+        <img src="contact page photo.png"alt="photo">
+    </div>
+    <div class="right-panel">
+    <form class="contact-form" id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="Enter First Name">
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="Enter Last Name">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your Email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter Phone Number">
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your Message"></textarea>
+      </div>
+
+      <button type="submit" class="send-btn">Send Message</button>
+    </form>
+    <!-- Hidden confirmation message -->
+    <p id="confirmationMessage" style="display:none; color:green; margin-top:10px;">
+      ✅ Your form has been sent successfully!
+    </p>
+  </div>
+       
+</div>
+<!-- Feedback Modal Trigger -->
+<button class="feedback-btn" id="openFeedback">
+  <span class="icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+  Give Feedback
+</button>
+
+<!-- Feedback Modal Window -->
+<div class="modal-backdrop" id="feedbackModal">
+  <div class="modal">
+    <header class="modal-header">
+      <h2>We’d love your feedback 🎬</h2>
+      <button class="close-btn" id="closeModal">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="modal-body" id="modalBody">
+      <form id="feedbackForm">
+        <label>Your Name</label>
+        <input type="text" id="name" class="input" placeholder="Enter your name" required>
+
+        <label>Your Rating</label>
+        <div class="stars" id="starContainer">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+        <label>Your Feedback</label>
+        <textarea id="message" class="input" rows="4" placeholder="Share your experience..." required></textarea>
+
+        <div class="modal-actions">
+          <button type="button" class="btn secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn primary">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-branding">
+      <img src="Vector.png" alt="Cinemaxx Logo">
+      <span class="brand"><span class="cine">Cine</span><span class="maxx">maxx</span></span>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Home</h3>
+        <ul>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Movies</h3>
+        <ul>
+          <li><a href="#">Genres</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Coming Soon</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    
+
+    <div class="footer-social">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="facebook icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="icon twitter.png" alt="Twitter" /></a>
+        <a href="#"><img src="icon linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>©2025 Cinemaxx. All Rights Reserved</p>
+    <div class="legal-links">
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+<script>
+  // --- Form submission logic ---
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent actual form submission
+
+    // Show the confirmation message
+    document.getElementById("confirmationMessage").style.display = "block";
+
+    // Clear the form fields
+    this.reset();
+  });
+
+  // --- Burger menu logic ---
+  const burger = document.getElementById('burger');
+  const menu = document.querySelector('.menu-box');
+
+  burger.addEventListener('click', () => {
+    // Toggle the 'active' class to show/hide the navigation menu
+    menu.classList.toggle('active');
+    
+    // Toggle the 'active' class for the burger icon animation
+    burger.classList.toggle('active');
+  });
+</script>
+<script>
+  const openBtn = document.getElementById('openFeedback');
+  const backdrop = document.getElementById('feedbackModal');
+  const closeBtn = document.getElementById('closeModal');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const form = document.getElementById('feedbackForm');
+  const stars = document.querySelectorAll('.star');
+  const modalBody = document.getElementById('modalBody');
+  let selectedRating = 0;
+
+  // Open modal
+  openBtn.addEventListener('click', () => backdrop.classList.add('open'));
+
+  // Close modal
+  const closeModal = () => {
+    backdrop.classList.remove('open');
+    setTimeout(() => {
+      // Reset modal back to form
+      modalBody.innerHTML = originalFormHTML;
+      restoreFormLogic();
+    }, 400);
+  };
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+
+  // Save original HTML to restore later
+  const originalFormHTML = modalBody.innerHTML;
+
+  // Function to restore JS logic after reset
+  function restoreFormLogic() {
+    const formRestored = document.getElementById('feedbackForm');
+    const newStars = document.querySelectorAll('.star');
+    let rating = 0;
+
+    newStars.forEach(star => {
+      star.addEventListener('click', () => {
+        rating = star.getAttribute('data-value');
+        updateStars(rating, newStars);
+      });
+      star.addEventListener('mouseover', () => {
+        updateStars(star.getAttribute('data-value'), newStars);
+      });
+      star.addEventListener('mouseout', () => {
+        updateStars(rating, newStars);
+      });
+    });
+
+    formRestored.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!rating) {
+        showTempMessage("Please select a star rating ⭐", true);
+        return;
+      }
+      showThankYouMessage(rating);
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', closeModal);
+  }
+
+  function updateStars(rating, starList = stars) {
+    starList.forEach(star => {
+      star.classList.toggle('active', star.getAttribute('data-value') <= rating);
+    });
+  }
+
+  function showThankYouMessage(rating) {
+    modalBody.innerHTML = `
+      <div class="thank-you">
+        <div class="star-animation">⭐️⭐️⭐️⭐️⭐️</div>
+        <h2>Thank You!</h2>
+        <p>We appreciate your ${rating}-star feedback.<br>Your opinion helps us improve our cinema experience 🍿</p>
+      </div>
+    `;
+    setTimeout(closeModal, 2500);
+  }
+
+  function showTempMessage(msg, isError = false) {
+    const notice = document.createElement('p');
+    notice.textContent = msg;
+    notice.style.color = isError ? 'red' : 'gold';
+    notice.style.textAlign = 'center';
+    modalBody.appendChild(notice);
+    setTimeout(() => notice.remove(), 1500);
+  }
+
+  // Form submit (first load)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!selectedRating) {
+      showTempMessage("Please select a star rating ⭐", true);
+      return;
+    }
+    showThankYouMessage(selectedRating);
+  });
+
+  // Stars logic (first load)
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      selectedRating = star.getAttribute('data-value');
+      updateStars(selectedRating);
+    });
+    star.addEventListener('mouseover', () => {
+      updateStars(star.getAttribute('data-value'));
+    });
+    star.addEventListener('mouseout', () => {
+      updateStars(selectedRating);
+    });
+  });
+
+  cancelBtn.addEventListener('click', closeModal);
+</script>
+<script>
+  // Находит все ссылки в навбаре
+  const navLinks = document.querySelectorAll('.menu-box a');
+  
+  // Берем имя текущего файла (например "movies.html")
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active'); // Добавляем белый цвет
+    } else {
+      link.classList.remove('active'); // Остальные серые
+    }
+  });
+</script>
+
+
+    
+</body>
+</html>

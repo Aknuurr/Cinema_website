@@ -1,0 +1,844 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #141414;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* only between logo image and text */
+}
+
+.logo img {
+  height: 30px;
+}
+
+.brand {
+  display: inline-block; /* keeps Cine+maxx together */
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cine {
+  color: #fff;  /* White */
+}
+
+.maxx {
+  color: #891D1D; /* Red */
+}
+
+
+.menu-box {
+  display: flex;
+  gap: 25px;
+  font-family: "Manrope", sans-serif;
+  background: #000;              /* Pure black background */
+  padding: 14px 30px;
+  border-radius: 12px;
+  border: 3px solid #333333;        /* Grey stroke (border) */
+}
+
+.menu-box a {
+  text-decoration: none;
+  color: #ccc;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.menu-box a:hover {
+  color: #fff;
+}
+
+.menu-box .active {
+  color: #fff;
+  font-weight: 400;
+}
+
+
+/* Icons */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.poster {
+  position: relative;
+  height: 75vh;
+  margin-top: 100px;
+  background: url('Container (10).png') center/cover no-repeat;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-left: 80px;   /* ➤ space from left */
+  margin-right: 80px;
+  transition: background-image 0.6s ease-in-out; /* ✅ smooth fade between images */
+}
+
+
+.poster .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.poster .content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 20px;
+  color: #fff;
+  z-index: 1;
+}
+
+.poster .title {
+  font-family: "Manrope", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.poster .description {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  color: #999999;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.poster .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.play-btn {
+  background: #e50914;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.play-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.play-btn:hover {
+  background: #f6121d;
+}
+
+.icon-btn {
+  background: none;          
+  border: none;              
+  width: auto;               
+  height: auto;
+  padding: 0;                
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.icon-btn img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.poster .nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.poster .nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.poster .left {
+  left: 20px;
+}
+
+.poster .right {
+  right: 20px;
+}
+
+.poster .dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.poster .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.poster .dot.active {
+  background: red;
+  
+}
+.corner-icon {
+  position: absolute;
+  bottom: 25px;      /* distance from bottom edge */
+  width: 40px;       /* size of icons */
+  height: 40px;
+  object-fit: contain;
+  z-index: 2;
+}
+.poster-fade-in {
+  animation: posterFadeIn 1s ease forwards;
+}
+@keyframes posterFadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+
+.trending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  margin-bottom: 50px;
+  margin-left: 70px;
+}
+
+.trending-header h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.trending-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0;     /* very small space between posters */
+  row-gap: 25px;       /* small space between top and bottom rows */
+  padding-bottom: 30px;
+  margin-left:150px;
+  margin-right: 150px;
+  justify-content: center;
+  
+}
+
+.movie-card {
+  background: #1A1A1A;
+  border: 2px solid #262626;
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+
+
+.movie-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.movie-info-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.movie-genre {
+  background: #141414;
+  color: #999999;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.movie-age {
+  background: #141414;
+  color: #999999;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.coming-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px;
+  margin-bottom: 50px;
+  margin-left: 70px;
+}
+
+.coming-header h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  background: #000;
+  padding: 10px 20px;
+  border-radius: 14px;
+  border: 2px solid #333;
+  gap: 10px;
+  width: fit-content;
+}
+
+.coming-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px; /* Add space before footer */
+  margin-right: 40px;
+}
+.coming-card {
+  background: #1A1A1A;
+  border: 2px solid #262626;
+  border-radius: 12px;
+  padding: 12px;
+  width: 200px;
+  height: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.coming-card:hover {
+  transform: scale(1.05);
+}
+
+.coming-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.release-box {
+  margin-top: 12px;
+  background-color: #1a1a1a;
+  border: 2px solid #262626;
+  color: #999999;
+  font-size: 12px;
+  font-family: "Manrope", sans-serif;
+  padding: 4px 10px;
+  border-radius: 50px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  
+}
+.horizontal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+  margin-top: 40px;
+  margin-right: 40px;
+
+}
+
+
+.ticket-banner {
+  position: relative;
+  display: flex;
+  width: 1242px;
+  height: 240px;
+  align-items: center;
+  background: url("ticket banner.png") center/cover no-repeat;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: 160px;
+  margin-right: 160px;
+}
+
+/* Dark gradient overlay */
+.ticket-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(255,0,0,0.3) 100%);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+}
+
+.text-content {
+  max-width: 700px;
+  
+  
+}
+
+.text-content h1 {
+  font-family: "Manrope", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.text-content p {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #999999;
+}
+
+.book-btn {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #E50000;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #ff1c24;
+  transform: scale(1.05);
+}
+.footer {
+  background-color: #0f0f0f;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: "Manrope", sans-serif;
+  margin-top: 50px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between logo and text */
+  margin-top: 50px;
+  flex: 1;
+  min-width: 200px;
+  height: auto;
+  margin-bottom: 60px;
+}
+
+.footer-branding .logo {
+  width: 40px; /* adjust size of logo */
+  height: 40px;
+}
+
+.footer-branding .brand-text {
+  font-size: 28px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+.footer-branding .brand-text span {
+  color: #ff2a2a; /* red color for “maxx” part */
+}
+
+.footer-links {
+  display: flex;
+  flex: 2;
+  gap: 160px;
+  margin-right: 200px;
+}
+
+.footer-column h3 {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: #999999;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-social h3 {
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.social-icons a img {
+  width: 35px;
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #999999;
+  margin-top: 30px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #999999;
+}
+
+.legal-links a {
+  margin-left: 20px;
+  color: #999999;
+  text-decoration: none;
+}
+
+/* --- General Responsive Adjustments --- */
+.burger {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010; /* Make sure it's above other elements */
+}
+
+.burger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: #fff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Burger animation when menu is open */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+
+/* --- Tablet View (Screens up to 992px wide) --- */
+@media (max-width: 992px) {
+  .trending-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 movies per row */
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-items: center; /* Center items in the grid */
+  }
+
+  .coming-container {
+    gap: 20px;
+  }
+}
+
+
+/* --- Mobile View (Screens up to 768px wide) --- */
+@media (max-width: 768px) {
+  /* Header and Navigation */
+  .menu-box {
+    display: none; /* Hide desktop menu */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 1px solid #333;
+    margin: 0;
+  }
+
+  .menu-box.active {
+    display: flex; /* Show dropdown menu */
+  }
+
+  .menu-box a {
+    padding: 1rem 0;
+  }
+
+  .burger {
+    display: flex; /* Show burger icon */
+  }
+
+  .icons {
+    display: none; /* Hide search and user icons */
+  }
+
+  /* Main Poster Section */
+  .poster {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 60vh; /* Reduce height on mobile */
+  }
+
+  .poster .title {
+    font-size: 24px;
+  }
+  .poster .description {
+    font-size: 13px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Trending and Coming Soon Sections */
+  .trending-header, .coming-header {
+    padding: 0 5%;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .trending-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 movies per row */
+    column-gap: 15px;
+    row-gap: 15px;
+  }
+  
+  .movie-card, .coming-card {
+    width: 160px; /* Adjust card size */
+    height: auto;
+  }
+  .movie-card img {
+    height: 190px;
+  }
+
+  /* Ticket Banner */
+  .ticket-banner {
+    width: 90%;
+    margin: 40px auto; /* Center banner */
+    height: auto;
+    padding: 30px 20px;
+  }
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Footer */
+   .footer-container, .footer-links, .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .footer-branding {
+      justify-content: center;
+      margin-right: 0;
+  }
+  .footer-links {
+      gap: 30px;
+      margin-right: 0;
+  }
+  .legal-links a {
+      margin: 5px 0;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .trending-container {
+        grid-template-columns: 1fr; /* 1 movie per row */
+    }
+    .movie-card, .coming-card {
+        width: 200px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
